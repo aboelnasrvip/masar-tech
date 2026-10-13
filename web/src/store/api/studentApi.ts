@@ -364,8 +364,10 @@ export const studentApi = baseApi.injectEndpoints({
         const supabase = getSupabase()
         const { data, error } = await supabase.rpc('get_assignment_for_student', { p_assignment_id: assignmentId })
         if (error) return { error: { status: 500, data: error.message } }
-        const payload =
-          data && typeof data === 'object' ? { ...(data as Record<string, unknown>) } : { questions: [] as unknown[] }
+        const payload: Record<string, unknown> =
+          data && typeof data === 'object' && !Array.isArray(data)
+            ? { ...(data as Record<string, unknown>) }
+            : { questions: [] }
         if (!payload.last_attempt) {
           const { data: userData } = await supabase.auth.getUser()
           if (userData.user?.id) {
@@ -536,27 +538,27 @@ export const studentApi = baseApi.injectEndpoints({
     >({
       async queryFn(lessonId) {
         const supabase = getSupabase()
-        let result = await supabase
+        const withUpdated = await supabase
           .from('lesson_discussions')
           .select('id, body, created_at, updated_at, author_id, profiles!author_id(full_name, role)')
           .eq('lesson_id', lessonId)
           .order('created_at')
-        if (result.error) {
-          result = await supabase
-            .from('lesson_discussions')
-            .select('id, body, created_at, author_id, profiles!author_id(full_name, role)')
-            .eq('lesson_id', lessonId)
-            .order('created_at')
-        }
-        if (result.error) {
-          result = await supabase
-            .from('lesson_discussions')
-            .select('id, body, created_at, author_id, profiles(full_name, role)')
-            .eq('lesson_id', lessonId)
-            .order('created_at')
-        }
-        if (result.error) return { error: { status: 500, data: result.error.message } }
-        return { data: (result.data ?? []) as never }
+        if (!withUpdated.error) return { data: (withUpdated.data ?? []) as never }
+
+        const withAuthor = await supabase
+          .from('lesson_discussions')
+          .select('id, body, created_at, author_id, profiles!author_id(full_name, role)')
+          .eq('lesson_id', lessonId)
+          .order('created_at')
+        if (!withAuthor.error) return { data: (withAuthor.data ?? []) as never }
+
+        const plain = await supabase
+          .from('lesson_discussions')
+          .select('id, body, created_at, author_id, profiles(full_name, role)')
+          .eq('lesson_id', lessonId)
+          .order('created_at')
+        if (plain.error) return { error: { status: 500, data: plain.error.message } }
+        return { data: (plain.data ?? []) as never }
       },
       providesTags: ['Chat'],
       keepUnusedDataFor: 0,

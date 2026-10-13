@@ -139,17 +139,18 @@ export function LessonPage() {
   useEffect(() => {
     const root = getPlatformScroll()
     if (!lessonId || !root) return
+    const scroller = root
     let ticking = 0
     function onScroll() {
       window.clearTimeout(ticking)
       ticking = window.setTimeout(() => {
-        localStorage.setItem(scrollKey(lessonId), String(root.scrollTop))
+        localStorage.setItem(scrollKey(lessonId), String(scroller.scrollTop))
       }, 250)
     }
-    root.addEventListener('scroll', onScroll, { passive: true })
+    scroller.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      root.removeEventListener('scroll', onScroll)
-      localStorage.setItem(scrollKey(lessonId), String(root.scrollTop))
+      scroller.removeEventListener('scroll', onScroll)
+      localStorage.setItem(scrollKey(lessonId), String(scroller.scrollTop))
     }
   }, [lessonId])
 
