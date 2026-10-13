@@ -1,0 +1,8 @@
+import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
+
+export const baseApi = createApi({
+  reducerPath: 'api',
+  baseQuery: fakeBaseQuery(),
+  tagTypes: ['Profile', 'Course', 'Lesson', 'Payment', 'Chat', 'Notification', 'Exam'],
+  endpoints: () => ({}),
+})

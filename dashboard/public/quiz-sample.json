@@ -1,0 +1,129 @@
+{
+  "questions": [
+    {
+      "question_text": "إيه الوسم اللي بنستخدمه لأكبر عنوان في الصفحة؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 0,
+      "explanation": "h1 هو أكبر عنوان في HTML.",
+      "options": [
+        { "option_text": "<h1>", "is_correct": true, "order_index": 0 },
+        { "option_text": "<h6>", "is_correct": false, "order_index": 1 },
+        { "option_text": "<p>", "is_correct": false, "order_index": 2 },
+        { "option_text": "<title>", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "إيه الوسم اللي بنحط فيه رابط؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 1,
+      "explanation": "الرابط بيتكتب بوسم a وخاصية href.",
+      "options": [
+        { "option_text": "<link>", "is_correct": false, "order_index": 0 },
+        { "option_text": "<a>", "is_correct": true, "order_index": 1 },
+        { "option_text": "<url>", "is_correct": false, "order_index": 2 },
+        { "option_text": "<href>", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "إيه الخاصية اللي بتحدد مصدر الصورة؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 2,
+      "explanation": "src هي مصدر الملف، وalt وصف الصورة.",
+      "options": [
+        { "option_text": "href", "is_correct": false, "order_index": 0 },
+        { "option_text": "alt", "is_correct": false, "order_index": 1 },
+        { "option_text": "src", "is_correct": true, "order_index": 2 },
+        { "option_text": "id", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "إيه الوسم الصحيح لقائمة غير مرقمة؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 3,
+      "explanation": "ul قائمة نقط، ol قائمة أرقام، li عنصر جواهم.",
+      "options": [
+        { "option_text": "<ol>", "is_correct": false, "order_index": 0 },
+        { "option_text": "<ul>", "is_correct": true, "order_index": 1 },
+        { "option_text": "<li>", "is_correct": false, "order_index": 2 },
+        { "option_text": "<list>", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "في CSS، إيه الخاصية اللي بتغيّر لون النص؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 4,
+      "explanation": "color للون النص، وbackground-color للخلفية.",
+      "options": [
+        { "option_text": "background", "is_correct": false, "order_index": 0 },
+        { "option_text": "font-size", "is_correct": false, "order_index": 1 },
+        { "option_text": "color", "is_correct": true, "order_index": 2 },
+        { "option_text": "text-align", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "إيه الوحدة الأنسب لحجم خط يتكيف مع الشاشة؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 5,
+      "explanation": "rem وem نسبية، وpx ثابتة.",
+      "options": [
+        { "option_text": "px بس", "is_correct": false, "order_index": 0 },
+        { "option_text": "cm", "is_correct": false, "order_index": 1 },
+        { "option_text": "rem", "is_correct": true, "order_index": 2 },
+        { "option_text": "kg", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "display: flex بتخلي العناصر تتصطف في صف أو عمود بسهولة.",
+      "question_type": "true_false",
+      "points": 1,
+      "order_index": 6,
+      "explanation": "Flexbox بتنظم العناصر في اتجاه واحد.",
+      "options": [
+        { "option_text": "صح", "is_correct": true, "order_index": 0 },
+        { "option_text": "غلط", "is_correct": false, "order_index": 1 }
+      ]
+    },
+    {
+      "question_text": "إيه الكلمة المفتاحية اللي بنعرّف بيها متغير يتغير بعد كده في JavaScript؟",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 7,
+      "explanation": "let للمتغير القابل للتغيير، وconst للقيمة الثابتة.",
+      "options": [
+        { "option_text": "const بس دايمًا", "is_correct": false, "order_index": 0 },
+        { "option_text": "let", "is_correct": true, "order_index": 1 },
+        { "option_text": "html", "is_correct": false, "order_index": 2 },
+        { "option_text": "class", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "إيه ناتج الكود: console.log(2 + \"2\")",
+      "question_type": "multiple_choice",
+      "points": 1,
+      "order_index": 8,
+      "explanation": "الرقم بيتتحول لنص، فالناتج 22 مش 4.",
+      "options": [
+        { "option_text": "4", "is_correct": false, "order_index": 0 },
+        { "option_text": "22", "is_correct": true, "order_index": 1 },
+        { "option_text": "NaN", "is_correct": false, "order_index": 2 },
+        { "option_text": "error", "is_correct": false, "order_index": 3 }
+      ]
+    },
+    {
+      "question_text": "اكتب ناتج: 3 + 4",
+      "question_type": "code_output",
+      "points": 1,
+      "order_index": 9,
+      "explanation": "جمع عددي عادي.",
+      "options": [
+        { "option_text": "7", "is_correct": true, "order_index": 0 }
+      ]
+    }
+  ]
+}
